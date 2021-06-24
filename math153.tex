@@ -1,0 +1,390 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{parskip}
+\usepackage{svg}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{geometry}
+\usepackage[document]{ragged2e}
+\geometry{letterpaper, portrait, top=1in, bottom=1in, left=1.5in, right=1.5in}
+\usepackage{comment}
+
+\title{MATH 153}
+
+\begin{document}
+\section{Sequences}
+
+A sequence is a list of numbers written in a defined order
+
+\begin{gather*}
+    a_1, a_2, a_3, \cdots
+\end{gather*}
+
+Sequences can also be denoted
+\begin{gather*}
+    \{a_n\} \\
+    \{a_n\}^\infty_{n=1}
+\end{gather*}
+
+Converging sequences settle on a certain number while diverging sequences does not settle on a number.
+
+Recursive sequence: A sequence that depends on previous values in the sequence.
+
+\section{Limit of a sequence}
+
+L'Hospital's rule: For differentiable functions $f$ and $g$, if $\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0$ or $\pm \infty$, and $g'(x) \neq 0$ for all $x$, and $\lim_{x \to c} \frac{f'(x)}{g'(x)}$ exists, then
+
+\begin{gather*}
+    \lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}
+\end{gather*}
+
+Limit laws:
+
+Let $\{a_n\}$ and $\{b_n\}$ be convergent sequences and $c$ be a constant.
+
+\begin{gather*}
+\lim_{n \to \infty} (a_n + b_n) = \lim_{n \to \infty} a_n + \lim_{n \to \infty} b_n \\
+\lim_{n \to \infty} (a_n - b_n) = \lim_{n \to \infty} a_n - \lim_{n \to \infty} b_n \\
+\lim_{n \to \infty} (a_n b_n) = \lim_{n \to \infty} a_n \cdot \lim_{n \to \infty} b_n \\
+\lim_{n \to \infty} ca_n = c \lim_{n \to \infty} a_n \\
+\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{\lim_{n \to \infty} a_n}{\lim_{n \to \infty} b_n} \text{ if } \lim_{n \to \infty} b_n \neq 0 \\
+\lim_{n \to \infty} a^p_n = \left( \lim_{n \to \infty} a_n \right)^p \text{ if } p > 0, a_n > 0
+\end{gather*}
+
+If $\lim_{n \to \infty} |a_n| = 0$, $\lim_{n \to \infty} a_n = 0$.
+
+If $\lim_{n \to \infty} a_n = L$ and function $f$ is continuous at $L$, $\lim_{n \to \infty} f(a_n) = f(L)$.
+
+The sequence $\{r^n\}$ is convergent if $-1 < r \leq 1$ and divergent for all other values of $r$.
+
+\begin{gather*}
+    \lim_{n \to \infty} r^n = \begin{cases}
+        0 \text{ if } -1 < r < 1 \\
+        1 \text{ if } r = 1
+    \end{cases}
+\end{gather*}
+
+Squeeze theorem: If $a_n \leq b_n \leq c_n$ and $\lim_{n \to \infty} a_n = \lim_{n \to \infty} c_n = L$, $\lim_{n \to \infty} b_n = L$.
+
+Monotonic sequences: A sequence ${a_n}$ is increasing if $a_n < a_{n+1}$ for all $n \geq 1$ and is decreasing if $a_n > a_{n+1}$ for all $n \geq 1$. Monotonic sequences are either increasing or decreasing.
+
+Bounded sequences: A sequence ${a_n}$ is bounded above if there is a number $M$ such that $a \leq M$ for all $n \geq 1$. ${a_n}$ is bounded below if there is a number $m$ such that $m \leq a_n$ for all $n \geq 1$. If ${a_n}$ is bounded above and below, then ${a_n}$ is a bounded sequence.
+
+If a sequence is bounded and monotonic, that sequence is convergent.
+
+\section{Ways to determine the limit}
+
+\begin{itemize}
+    \item Draw graph or construct table
+    \item Break it up into smaller limits using the limit laws
+    \item L'Hospital's Rule
+    \item Determine how each term will change as $n$ approaches infinity
+    \item Use the squeeze theorem if it converges between two functions with the same limits
+    \item Substitute a variable if a common pattern appears more than once. Remember to solve its limit to replace the limit variable.
+    \item If it is raised to the $n$th power, calculate the natural log of both sides.
+\end{itemize}
+
+\section{Series}
+
+Series: The sum of all terms of a sequence.
+
+Infinite sum:
+\begin{gather*}
+    \sum_{n=1}^{\infty} a_n = S
+\end{gather*}
+
+Partial sum:
+\begin{gather*}
+    \sum_{K=1}^{n} a_K = S_n
+\end{gather*}
+
+Partial sums can be used to determine convergence of an infinite sum.
+
+\begin{gather*}
+    \sum_{n=1}^{\infty} a_n = \lim_{n \to \infty} \sum_{K=1}^{n} a_K
+\end{gather*}
+
+If $\{S_n\}$ converges, then $\lim_{n \to \infty} S_n = S$.
+
+\section{Geometric series}
+
+\begin{gather*}
+    \sum_{n=1}^{\infty} ar^{n-1} = a + ar + a^2 + a^3 + \cdots + ar^{n-1}
+\end{gather*}
+
+\begin{itemize}
+    \item If $r \leq -1$ or $r \geq 1$, the series will diverge  \\
+    \item If $-1 < r < 1$, the series will converge and the limits is \\
+    \begin{gather*}
+        S = \frac{a}{1-r}
+    \end{gather*}
+\end{itemize}
+
+Theorems for convergent series
+\begin{align*}
+    \sum_{n=1}^{\infty} ca_n &= c \sum_{n=1}^{\infty} a_n \\
+    \sum_{n=1}^{\infty} (a_n + b_n) &= \sum_{n=1}^{\infty} a_n + \sum_{n=1}^{\infty} b_n \\
+    \sum_{n=1}^{\infty} (a_n - b_n) &= \sum_{n=1}^{\infty} a_n - \sum_{n=1}^{\infty} b_n
+\end{align*}
+
+Telescoping series: Each pair of consecutive terms have parts that cancel out, which makes it easy to find the closed form.
+
+Test for divergence: If $\lim_{n \to \infty} a_n$ does not exist or if $\lim_{n \to \infty} a_n \neq 0$, then the series $\sum_{n=1}^{\infty} a_n$ is divergent.
+
+\section{Integral test}
+
+Integral Test: Let $f$ be a continuous, positive, decreasing function on $[1, \infty)$ and let $a_n = f(n)$. Then the series $\sum_{n=1}^\infty a_n$ is convergent if and only if the improper integral $\int_1^\infty f(x) dx$ is convergent.
+
+P-series test: The $p$-series $\sum_{n=1}^\infty \frac{1}{n^p}$ is convergent if $p > 1$ and divergent if $p \leq 1$.
+
+\section{Comparison test}
+
+Comparison test: Let $\sum a_n$ and $\sum b_n$ be series with positive terms.
+\begin{itemize}
+    \item If $\sum b_n$ is convergent and $a_n \leq b_n$ for all $n$, then $\sum a_n$ is convergent.
+    \item If $\sum b_n$ is divergent and $a_n \geq b_n$ for all $n$, then $\sum a_n$ is divergent.
+\end{itemize}
+
+\section{Limit comparison test}
+
+Limit comparison test: Let $\sum a_n$ and $\sum b_n$ be series with positive terms. If
+\begin{gather*}
+    \lim_{n \to \infty} \frac{a_n}{b_n} = c
+\end{gather*}
+
+where $c$ is a finite number and $c > 0$, then either both series converge or both diverge.
+
+\section{Alternating series}
+
+Alternating series: A series whose terms are alternately positive and negative.
+\begin{gather*}
+    \sum_{n = 0}^\infty (-1)^{n-1} b_n = a_0 - a_1 + a_2 - a_3 + \cdots
+\end{gather*}
+
+Alternating series test: Given an alternating series $\sum (-1)^{n-1} b_n$, if $b_n$ is decreasing and $\lim_{n \to \infty} b_n = 0$, then $\sum (-1)^{n-1} b_n$ is convergent.
+
+Alternating series estimation theorem: If $S = \sum (-1)^{n-1}b_n$ where $b_n > 0$ is the sum of a converging alternating series, then
+\begin{gather*}
+    |R_n| = |S - S_n| \leq b_{n + 1}
+\end{gather*}
+
+\section{Ratio test}
+
+Absolute convergence: Given a series $\sum a_n$, if $\sum |a_n|$ converges, then $\sum a_n$ is absolutely convergent.
+
+Conditional convergence: A series $\sum a_n$ that is convergent but not absolutely convergent.
+
+Ratio test: Given the series $\sum_{n=1}^\infty a_n$,
+\begin{gather*}
+    \text{if } \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|
+    \begin{cases}
+        < 1 \text{, then the series is absolutely convergent} \\
+        > 1 \text{ or } \infty \text{, then the series is divergent} \\
+        = 1 \text{, the Ratio Test is inconclusive}
+    \end{cases}
+\end{gather*}
+
+\section{Root test}
+
+Root test: Given the series $\sum_{n=1}^\infty a_n$,
+\begin{gather*}
+    \text{if } \lim_{n \to \infty} |a_n|^{\frac{1}{n}}
+    \begin{cases}
+        < 1 \text{, then the series is absolutely convergent} \\
+        > 1 \text{ or } \infty \text{, then the series is divergent} \\
+        = 1 \text{, the Ratio Test is inconclusive}
+    \end{cases}
+\end{gather*}
+
+\section{Tests for convergence and divergence}
+
+\begin{itemize}
+    \item Geometric series
+    \item Telescoping series
+    \item Test for divergence
+    \item Integral test
+    \item P-series test
+    \item Comparison test
+    \item Limit comparison test
+    \item Alternating series test
+    \item Ratio test
+    \item Root test
+\end{itemize}
+
+\section{Power series}
+
+The power series:
+\begin{gather*}
+    \sum_{n=0}^\infty c_n (x - a)^n
+\end{gather*}
+
+This power series is centered around $a$.
+
+For a given power series $\sum_{n=0}^\infty c_n (x - a)^n$, there are only three possibilities:
+\begin{itemize}
+    \item The series converges only when $x=a$
+    \item The series converges for all x
+    \item There is a positive number $R$ such that the series converges if $|x - a| < R$ and diverges if $|x - a| > R$
+\end{itemize}
+
+The interval of convergence is the interval for $x$ such that the series converges.
+
+The radius of convergence is half the distance of the interval of convergence.
+
+Sometimes, such as for the ratio test and root test, the endpoints must be checked for convergence.
+
+\section{Representations of functions as power series}
+
+\begin{gather*}
+    \frac{1}{1-x} = \sum_{n=0}^\infty x^n \\
+    \text{where } |x| < 1
+\end{gather*}
+
+Term-by-term differentiation and integration:
+
+If the power series $\sum_{n=0}^\infty c_n (x - a)^n$ has radius of convergence $R > 0$, then the function $f$ defined by
+
+\begin{gather*}
+    f(x) = c_0 + c_1(x+a) + c_2(x-a)^2 + \cdots = \sum_{n=0}^\infty c_n (x - a)^n
+\end{gather*}
+
+is differentiable on the interval $(a - R, a + R)$ and
+
+\begin{gather*}
+    f'(x) = c_1 + 2 c_2 (x - a) + 3 c_3 (x - a)^2 + \cdots = \sum_{n=1}^\infty n c_n (x - a)^{n-1} \\
+    \int f(x) dx = C + c_0 (x - a) + c_1 \frac{(x-a)^2}{2} + c_2 \frac{(x-a)^3}{3} + \cdots = C + \sum_{n=0}^\infty c_n \frac{(x - a)^{n+1}}{n + 1}
+\end{gather*}
+
+The radii of convergence of both equations are $R$.
+
+\section{Taylor and Maclaurin Series}
+
+If the power series representation at $a$ is
+\begin{gather*}
+    f(x) = \sum_{n=0}^\infty c_n (x - a)^n
+\end{gather*}
+
+then its Taylor series is 
+
+\begin{gather*}
+    f(x) = \sum_{n=0}^\infty \frac{f^{n}(a)}{n!} (x - a)^n
+\end{gather*}
+
+Maclaurin series: The Taylor series but with $a = 0$
+
+Important Maclaurin series
+\begin{align*}
+    \frac{1}{1-x} &= \sum_{n=0}^\infty x^n, R = 1 \\
+    e^x &= \sum_{n=0}^\infty \frac{x^n}{n!}, R = \infty \\
+    \sin(x) &= \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!}, R = \infty \\
+    \cos(x) &= \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!}, R = \infty \\
+    \tan^{-1}(x) &= \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}, R = 1 \\
+    \ln(1 + x) &= \sum_{n=1}^\infty (-1)^{n-1} \frac{x^n}{n}, R = 1 \\
+    (1 + x)^k &= 1 + kx + \frac{k(k-1)}{2!}x^2 + \frac{k(k-1)(k-2)}{3!}x^3 + \cdots = \sum_{n=0}^\infty {k \choose n} x^n, R = 1
+\end{align*}
+
+\section{Parametric equations}
+Unlike rectangular equations, parametric equations have a third variable $t$.
+It has an initial point and terminal point for the minimum and maximum $t$ values respectively.
+
+First derivative (Slope):
+\begin{gather*}
+    \frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}} \\
+    \text{if }\frac{dx}{dt} \neq 0
+\end{gather*}
+
+Second derivative (Concavity):
+\begin{gather*}
+    \frac{d^2 y}{dx^2} = \frac{\frac{d}{dt}\left( \frac{dy}{dx} \right)}{\frac{dx}{dt}}
+\end{gather*}
+
+If a curve is defined by $x = f(t), y = g(t), \alpha \leq t \leq \beta$, the area under the curve is
+\begin{gather*}
+    \int_\alpha^\beta g(t) f'(t) dt
+\end{gather*}
+
+The arc length is
+\begin{gather*}
+    \int_\alpha^\beta \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} dt
+\end{gather*}
+
+\section{Polar coordinates}
+
+Converting from polar coordinates to Cartesian coordinates
+\begin{gather*}
+    x = r \cos(\theta) \\
+    y = r \sin(\theta)
+\end{gather*}
+
+Converting from Cartesian to polar coordinates
+\begin{gather*}
+    r^2 = x^2 + y^2 \\
+    \tan(\theta) = \frac{y}{x}
+\end{gather*}
+
+Distance formula
+\begin{gather*}
+    d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+\end{gather*}
+
+\begin{itemize}
+    \item If $f(\theta) = f(-\theta)$, the curve is symmetric about the polar axis. \\
+    \item If $f(\theta) = f(\theta + \pi)$, the curve is symmetric about the pole. \\
+    \item If $f(\theta) = f(\pi - \theta)$, the curve is symmetric about $\theta = \pi / 2$.
+\end{itemize}
+
+Area of $R$:
+
+\begin{gather*}
+    \int_a^b \frac{1}{2}(f(\theta))^2 d\theta
+\end{gather*}
+
+Trig identities
+
+\begin{align*}
+    \sin^2(\theta) &= \frac{1-\cos(2\theta)}{2} \\
+    \cos^2(\theta) &= \frac{1+\cos(2\theta)}{2}
+\end{align*}
+
+\section{Vectors}
+
+A vector:
+\begin{itemize}
+    \item Has a magnitude and direction.
+    \item Has an initial point and terminal point
+    \item A vector from $A$ to $B$ is written $\overrightarrow{AB}$
+\end{itemize}
+
+Scalar multiplication of vectors: If $c$ is a scalar and $v$ is a vector, the scalar multiple $cv$ is the vector whose length is $|c|$ times the length of $v$ and whose direction is the same as $v$ if $c > 0$ and is opposite to $v$ if $c<0$. If $c=0$, then $cv=0$.
+
+Vector addition: The sum of vectors $u$ and $v$, $u+v$, is a vector from the initial point of $u$ to the terminal point of $v$. $u + v = v + u$.
+
+Position vector: A vector that represents a coordinate relative to an origin.
+
+Given the points $A(x_1, y_1, z_1)$ and $B(x_2, y_2, z_2)$, the vector $\overrightarrow{AB} = \left\langle x_2 - x_1, y_2 - y_1, z_2 - z_1 \right\rangle$
+
+Unit vector: Vectors that have a magnitude of $1$.
+
+\begin{align*}
+    \hat{i} &= \text{unit vector in $x$ direction} \\
+    \hat{j} &= \text{unit vector in $y$ direction} \\
+    \hat{k} &= \text{unit vector in $z$ direction}
+\end{align*}
+
+Magnitude of a vector:
+\begin{gather*}
+    |a| = \sqrt{a_1^2 + a_2^2}
+\end{gather*}
+
+\begin{gather*}
+    \hat{u} = \frac{\overrightarrow{a}}{|\overrightarrow{a}|}
+\end{gather*}
+
+Equation of a sphere:
+\begin{gather*}
+    (x-h)^2 + (y-k)^2 + (z-l)^2 = r^2
+\end{gather*}
+
+\end{document}
